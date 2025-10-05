@@ -18,21 +18,18 @@ form.addEventListener("submit", function(event) {
   if (apellido.length < 3) {
     errores.push("El apellido debe tener al menos 3 caracteres.");
   }
-
-  // Validar correo
+  
   const correo = document.getElementById("correo").value.trim();
   const patronCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!patronCorreo.test(correo)) {
     errores.push("El correo no es válido.");
   }
-
-  // Validar teléfono (solo números, 10 dígitos)
+  
   const telefono = document.getElementById("telefono").value.trim();
   if (!/^[0-9]{10}$/.test(telefono)) {
     errores.push("El teléfono debe tener 10 dígitos numéricos.");
   }
 
-  // Mostrar errores o éxito
   if (errores.length > 0) {
     alert("Errores encontrados:\n- " + errores.join("\n- "));
   } else {
